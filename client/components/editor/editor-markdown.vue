@@ -147,11 +147,11 @@
             v-btn.mt-3.animated.fadeInLeft.wait-p6s(icon, tile, v-on='on', dark, disabled).mx-0
               v-icon mdi-function-variant
           span {{$t('editor:markup.insertMathExpression')}}
-        v-tooltip(right, color='teal')
-          template(v-slot:activator='{ on }')
-            v-btn.mt-3.animated.fadeInLeft.wait-p7s(icon, tile, v-on='on', dark, disabled).mx-0
-              v-icon mdi-table-plus
-          span {{$t('editor:markup.tableHelper')}}
+        //- v-tooltip(right, color='teal')
+        //-   template(v-slot:activator='{ on }')
+        //-     v-btn.mt-3.animated.fadeInLeft.wait-p7s(icon, tile, v-on='on', dark, disabled).mx-0
+        //-       v-icon mdi-table-plus
+        //-   span {{$t('editor:markup.tableHelper')}}
         template(v-if='$vuetify.breakpoint.mdAndUp')
           v-spacer
           v-tooltip(right, color='teal')
