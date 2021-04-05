@@ -6,26 +6,6 @@
         .subtitle-1.white--text {{$t('editor:select.title')}}
         v-container(grid-list-lg, fluid)
           v-layout(row, wrap, justify-center)
-            //- v-flex(xs4)
-            //-   v-hover
-            //-     template(v-slot:default='{ hover }')
-            //-       v-card.radius-7.primary.animated.fadeInUp.wait-p1s(
-            //-         hover
-            //-         light
-            //-         ripple
-            //-         )
-            //-         v-card-text.text-center(@click='')
-            //-           img(src='/_assets/svg/editor-icon-wikitext.svg', alt='WikiText', style='width: 36px; opacity: .5;')
-            //-           .body-2.blue--text.mt-2.text--lighten-2 Blog
-            //-           .caption.blue--text.text--lighten-1 Timeline of Posts
-            //-         v-fade-transition
-            //-           v-overlay(
-            //-             v-if='hover'
-            //-             absolute
-            //-             color='primary'
-            //-             opacity='.8'
-            //-             )
-            //-             .body-2.mt-7 Coming Soon
             v-flex(xs4)
               v-card.radius-7.animated.fadeInUp.wait-p2s(
                 hover
@@ -46,7 +26,6 @@
                   img(src='/_assets/svg/editor-icon-markdown.svg', alt='Markdown', style='width: 36px;')
                   .body-2.primary--text.mt-2 Markdown
                   .caption.grey--text Plain Text Formatting
-
             v-flex(xs4)
               v-card.radius-7.animated.fadeInUp.wait-p3s(
                 hover
@@ -57,7 +36,6 @@
                   img(src='/_assets/svg/editor-icon-ckeditor.svg', alt='Visual Editor', style='width: 36px;')
                   .body-2.mt-2.primary--text Visual Editor
                   .caption.grey--text Rich-text WYSIWYG
-        //- .caption.blue--text.text--lighten-2 {{$t('editor:select.cannotChange')}}
 
     v-card.radius-7.mt-2(color='teal darken-3', dark)
       v-card-text.text-center.py-4
