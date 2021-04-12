@@ -1,13 +1,21 @@
 <template lang='pug'>
   v-card.editor-modal-media.animated.fadeInLeft(flat, tile, :class='`is-editor-` + editorKey')
     v-container.pa-3(grid-list-lg, fluid)
-      v-layout(row, wrap)
-        v-card.radius-7.animated
-          v-card-text
-            h1 hello
-        //- v-card.radius-7.animated.fadeInLeft.wait-p1s(:light='!$vuetify.theme.dark', :dark='$vuetify.theme.dark')
+      v-row
+        v-col.d-flex.justify-center.align-center(cols=2)
+          v-card
+            v-card-title.justify-center Top-32
+            v-card-subtitle.text-center Insert 32 pilots
             v-card-text
-              h1 HELLOOO
+              v-textarea(rows=10, row-height=10)
+            v-card-actions.justify-center
+              v-btn Generate
+        v-col
+          v-card
+            v-card-title Tournament bracket
+            v-card-text
+              <div>d</div>
+
 </template>
 <script>
 export default {
