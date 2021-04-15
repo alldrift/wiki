@@ -12,7 +12,7 @@
               v-btn Generate
         v-col
           v-card
-            v-card-title Tournament bracket
+            v-card-title.justify-center Tournament bracket
             v-card-text
               <div>d</div>
 
