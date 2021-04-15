@@ -1,31 +1,27 @@
 <template>
   <div>
-    <div class="input-container">
-      <h1>Provide the list of pilots</h1>
-      <h2>{{error}}</h2>
-      <textarea name="Text1" cols="40" rows="32" v-model="input"></textarea>
-      <button v-on:click="getExample">Get an example</button>
-      <button v-on:click="generateBracket">Generate bracket</button>
-    </div>
-    <h1>Tournament table</h1>
+    <!-- <h1>Tournament table</h1> -->
     <div class="row" v-if="list.length === 32">
-      <!-- <Column :header="'Top-32'" :index="0" :left="left[0]" :right="right[0]" :onChange="handleChange" />
-      <Column :header="'Top-16'" :index="1" :left="left[1]" :right="right[1]" :onChange="handleChange" />
-      <Column :header="'Top-8'" :index="2" :left="left[2]" :right="right[2]" :onChange="handleChange" />
-      <Column :header="'Top-4'" :index="3" :left="left[3]" :right="right[3]" :onChange="handleChange" />
-      <Final :gold="gold" :bronze="bronze" :onChange="handleFinals"/> -->
+      <top-32-column :header="'Top-32'" :index="0" :left="left[0]" :right="right[0]" :onChange="handleChange" />
+      <top-32-column :header="'Top-16'" :index="1" :left="left[1]" :right="right[1]" :onChange="handleChange" />
+      <top-32-column :header="'Top-8'" :index="2" :left="left[2]" :right="right[2]" :onChange="handleChange" />
+      <top-32-column :header="'Top-4'" :index="3" :left="left[3]" :right="right[3]" :onChange="handleChange" />
+      <top-32-final :gold="gold" :bronze="bronze" :onChange="handleFinals" />
     </div>
   </div>
 </template>
 <script>
-import Column from './Column.vue'
-import Final from './Final.vue'
+import Top32Column from './top-32-column.vue'
+import Top32Final from './top-32-final.vue'
 export default {
-  name: 'v-top-32-bracket',
+  name: 'top-32-bracket',
+  props: {
+    list: Array
+  },
   data() {
     return {
       input: '',
-      list: [],
+      // list: [],
       left: [],
       right: [],
       gold: {},
@@ -33,8 +29,20 @@ export default {
       error: ''
     }
   },
+  watch: {
+    list: function(oldV, newV) {
+      if(oldV !== newV) {
+        console.log(`old: ${JSON.stringify(oldV)}`)
+        console.log(`new: ${JSON.stringify(newV)}`)
+        this.generateBracket();
+      }
+
+    }
+  },
   components: {
-    Column, Final
+    Top32Column,
+    Top32Final,
+
   },
   methods: {
     handleChange: function(side, x, y, pairPosition, clear) {
@@ -85,12 +93,12 @@ export default {
       this[type][opposite].selected = selected && !this[type][opposite].selected;
     },
     generateBracket: function() {
-      const list = this.input.split('\n').filter(i => i);
-      const length = list.length;
-      if (length !== 32) {
-        this.error = `Provided items: ${length}. Required: 32`;
-      }
-      this.list = list;
+      // const list = this.input.split('\n').filter(i => i);
+      // const length = list.length;
+      // if (length !== 32) {
+      //   this.error = `Provided items: ${length}. Required: 32`;
+      // }
+      // this.list = list;
       this.left = this.getLeft();
       this.right = this.getRight();
       this.gold = this.getPair();
@@ -212,6 +220,10 @@ const example =
 </script>
 
 <style scoped>
+.row {
+  padding-left: '20px !important';
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
