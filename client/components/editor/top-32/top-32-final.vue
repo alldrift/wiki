@@ -62,6 +62,7 @@ $border-style: 1px solid #9e9e9e;
     background-color: whitesmoke;
     border-right: 1px solid grey;
     padding: 5px 0;
+    text-align: center;
   }
   h3 {
     margin: 5px 0;

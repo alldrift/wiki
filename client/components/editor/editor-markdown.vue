@@ -839,6 +839,12 @@ export default {
 
     this.$root.$on('editorInsert', opts => {
       switch (opts.kind) {
+        case 'TOP32':
+          console.log('top32 editor');
+          this.insertAtCursor({
+            content: opts.html
+          })
+          break
         case 'IMAGE':
           let img = `![${opts.text}](${opts.path})`
           if (opts.align && opts.align !== '') {

@@ -3,18 +3,21 @@
     v-container.pa-3(grid-list-lg, fluid)
       v-row
         v-col.d-flex.justify-center.align-center(cols=2)
-          v-card
+          v-card.modal-input
             v-card-title.justify-center Top-32
             v-card-subtitle.text-center Insert 32 pilots
             v-card-text
-              v-textarea(rows=10, row-height=10, v-model="input")
+              v-textarea(outlined, autgrow, rows=32, row-height=10, v-model="input")
             v-card-actions.justify-center
+              v-btn(v-on:click="handleExample") Example
               v-btn(v-on:click="handleGenerate") Generate
         v-col
           v-card
             v-card-title.justify-center Tournament bracket
-            v-card-text
-              top-32-bracket(v-if="list.length === 32" :list="list")
+            v-card-text(id="bracket")
+              top-32-bracket(:list="list")
+            v-card-actions.justify-center
+              v-btn(v-on:click="handleAdd") Add
 
 </template>
 <script>
@@ -23,16 +26,19 @@ export default {
   data() {
     return {
       input: '',
-      list: []
+      list: Array(32).fill("")
     }
   },
   components: {
     Top32Bracket
   },
   methods: {
-    handleGenerate: function() {
-      console.log('handleChange');
+    handleExample: function() {
+      console.log('handleExample');
       this.input = example;
+    },
+    handleGenerate: function() {
+      console.log('handleGenerate');
       const list = this.input.split('\n').filter(i => i);
       const length = list.length;
       if (length !== 32) {
@@ -41,6 +47,14 @@ export default {
       }
       this.list = list;
 
+    },
+    handleAdd: function() {
+      const elem = document.getElementById('bracket');
+      let inner = elem.innerHTML;
+      this.$root.$emit('editorInsert', {
+        kind: 'TOP32',
+        html: inner
+      });
     }
   }
 }
@@ -82,6 +96,10 @@ const example =
 
 
 <style lang='scss'>
+.modal-input {
+  height: 100%;
+}
+
 .editor-modal-media {
   position: fixed !important;
   top: 112px;

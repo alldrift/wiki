@@ -41,8 +41,7 @@ export default {
   },
   components: {
     Top32Column,
-    Top32Final,
-
+    Top32Final
   },
   methods: {
     handleChange: function(side, x, y, pairPosition, clear) {
@@ -50,7 +49,7 @@ export default {
       const newX = x + 1;
       const newY = y / 2 | 0;
       const newPairPosition = y % 2 == 0 ? 'upper' : 'lower';
-      const oppositePairPosition = this.getOppositePairPosition();
+      const oppositePairPosition = this.getOppositePairPosition(pairPosition);
       const pair = this[side][x][y];
 
       clear = pair[pairPosition].selected ? true : clear;
