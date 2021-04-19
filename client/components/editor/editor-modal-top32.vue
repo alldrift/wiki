@@ -49,6 +49,7 @@ export default {
 
     },
     handleAdd: function() {
+      console.log('add');
       const elem = document.getElementById('bracket');
       let inner = elem.innerHTML;
       this.$root.$emit('editorInsert', {

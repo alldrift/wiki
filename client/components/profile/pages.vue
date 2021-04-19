@@ -33,6 +33,8 @@
                   span.ml-2.grey--text(:class='$vuetify.theme.dark ? `text--lighten-1` : `text--darken-2`') / {{ props.item.path }}
                 td {{ props.item.createdAt | moment('calendar') }}
                 td {{ props.item.updatedAt | moment('calendar') }}
+                td
+                  div HELLLOOOO
             template(slot='no-data')
               v-alert.ma-3(icon='mdi-alert', :value='true', outlined, color='grey')
                 em.caption {{$t('profile:pages.emptyList')}}

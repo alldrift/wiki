@@ -1,0 +1,141 @@
+$border-style: 1px solid #9e9e9e;
+.v-top32 {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: scroll;
+  padding-left: '20px !important';
+
+  > .v-top32-column {
+    display: flex;
+    flex-direction: column;
+
+    &:first-of-type > .v-top32-pair {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    &:nth-of-type(2) > .v-top32-pair > button:first-of-type::after {
+      height: 52px;
+    }
+
+    &:nth-of-type(3) > .v-top32-pair > button:first-of-type::after {
+      height: 108px;
+    }
+
+    &:nth-of-type(4) > .v-top32-pair > button:first-of-type::after {
+      height: 210px;
+    }
+
+    > .v-top32-header {
+      background-color: whitesmoke;
+      border-right: 1px solid grey;
+      padding: 5px 0;
+      text-align: center;
+    }
+    .bronze {
+      position: absolute;
+    }
+    > .v-top32-pair {
+      display: flex;
+      flex-direction: column;
+      margin: auto 20px;
+
+      &:nth-child(even) > .v-top32-button:first-of-type::after {
+        border-top: $border-style;
+        top: 100%;
+      }
+
+      &:nth-child(odd) > .v-top32-button:first-of-type::after {
+        border-bottom: $border-style;
+        bottom: 0%;
+      }
+
+      > .v-top32-button {
+        padding: 0 3px 0 0;
+        min-width: 150px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
+        background: rgb(255,255,255); /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6-15 */
+        background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        text-align: left;
+        border: 1px solid #9e9e9e;
+        transform: translateY(1px);
+        height: 22px;
+
+        font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+        font-size: 13px;
+
+        padding-right: 10px;
+        display:table-cell;
+        vertical-align:middle;
+
+        > span {
+          position: static;
+          text-align: center;
+          display: inline-block;
+          width: 20px;
+          border-right: 1px solid #9e9e9e;
+          margin-right: 2px;
+          background-color: gainsboro;
+        }
+      }
+
+      > .v-top32-button:first-of-type {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom: 1px solid whitesmoke;
+      }
+
+      > .v-top32-button:last-of-type {
+        border-top: 1px solid whitesmoke;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+
+      > .v-top32-button:active {
+        border-color: green;
+      }
+
+      > .v-top32-button.selected {
+        border-width: 1px;
+        border-color: green;
+        background:rgba(56, 255, 0, 0.1);
+        & span {
+          background:rgba(63, 153, 51, 0.432);
+        }
+      }
+
+      > .v-top32-button:first-of-type::after {
+        content:"";
+        width: 18px;
+        position: absolute;
+        border-right: $border-style;
+        margin-left: 2px;
+        left: 100%;
+        height: 26px;
+      }
+    }
+  }
+
+  > .v-top32-column:not(:first-of-type) > .v-top32-pair > .v-top32-button:first-of-type::before {
+    content:"";
+    position: absolute;
+    border-top:$border-style;
+    top: 100%;
+    border-left: $border-style;
+    left: 0;
+    width: 16px;
+    margin-left: -21px;
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <h1>Tournament table</h1> -->
-    <div class="row" v-if="list.length === 32">
+    <div class="v-top32" v-if="list.length === 32">
       <top-32-column :header="'Top-32'" :index="0" :left="left[0]" :right="right[0]" :onChange="handleChange" />
       <top-32-column :header="'Top-16'" :index="1" :left="left[1]" :right="right[1]" :onChange="handleChange" />
       <top-32-column :header="'Top-8'" :index="2" :left="left[2]" :right="right[2]" :onChange="handleChange" />
@@ -219,36 +219,11 @@ const example =
 </script>
 
 <style scoped>
-.row {
-  padding-left: '20px !important';
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-}
-.input-container > h1 {
-  width: 40%;
-  margin: auto;
-}
-.input-container > h2 {
-  width: 30%;
-  color: red;
-  margin: auto;
-  border: 1px solid red;
-  margin-bottom: 10px;
-}
-.input-container * {
-  width: 20%;
-  margin: auto;
-}
-
-.row {
+/* .row {
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
   overflow: scroll;
-}
+  padding-left: '20px !important';
+} */
 </style>
