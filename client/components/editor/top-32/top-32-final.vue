@@ -1,7 +1,7 @@
 <template>
   <div class="v-top32-column">
     <h2 class="v-top32-header">Final</h2>
-    <div class="v-top32-pair final">
+    <div class="v-top32-pair">
       <h3>Final</h3>
       <button class="v-top32-button"
         v-bind:class="{selected: gold.upper.selected}"

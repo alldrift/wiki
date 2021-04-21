@@ -3,7 +3,9 @@ $border-style: 1px solid #9e9e9e;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
-  overflow: scroll;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: nowrap;
   padding-left: '20px !important';
 
   > .v-top32-column {
@@ -27,19 +29,30 @@ $border-style: 1px solid #9e9e9e;
       height: 210px;
     }
 
+    &:last-of-type > .v-top32-pair > button:first-of-type::after {
+      content: none !important;
+    }
+
     > .v-top32-header {
       background-color: whitesmoke;
       border-right: 1px solid grey;
       padding: 5px 0;
       text-align: center;
     }
+
     .bronze {
       position: absolute;
+      top: 61%;
     }
+
     > .v-top32-pair {
       display: flex;
       flex-direction: column;
       margin: auto 20px;
+
+      &.bronze > .v-top32-button:first-of-type::before {
+        content: none !important;
+      }
 
       &:nth-child(even) > .v-top32-button:first-of-type::after {
         border-top: $border-style;
