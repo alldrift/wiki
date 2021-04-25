@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="v-top-32-root">
     <!-- <h1>Tournament table</h1> -->
     <div class="v-top32" v-if="list.length === 32">
       <top-32-column :header="'Top-32'" :index="0" :left="left[0]" :right="right[0]" :onChange="handleChange" />
